@@ -1,7 +1,8 @@
+// Dependencies
 const router = require('express').Router();
 const { Post, Comment, User } = require('../models/');
 
-// get all posts for homepage
+// A GET route for the homepage that renders the "all-posts" handlebars template
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get single post
+// A GET route for a single post that renders the "single-post" handlebars template
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -41,6 +42,9 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+// A GET route for the homepage:
+// If the user is not logged in, redirect the user to the login page
+// If the user is logged in, render the "all-posts" handlebars template
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -50,6 +54,9 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// A GET route for the homepage:
+// If the user is not signed up, redirect the user to the signup page
+// If the user is signed up, render the "all-posts" handlebars template
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');

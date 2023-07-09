@@ -9,7 +9,6 @@ const dashboardRoutes = require('./dashboard-routes.js');
 // Adds the prefix of `/` to all of the home routes imported from the "home-routes.js" file 
 // Adds the prefix of `/dashboard` to all of the dashboard routes imported from the "dashboard-routes.js" file
 // Adds the prefix of`/api` to all of the api routes imported from the "api" directory
-
 router.use('/', homeRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.use('/api', apiRoutes);
