@@ -1,7 +1,9 @@
+// Dependencies
 const router = require('express').Router();
 const { Comment } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
+// A POST route for creating a comment
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
