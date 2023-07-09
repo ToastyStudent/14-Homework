@@ -1,6 +1,8 @@
+// Dependencies
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 
+// Creation of the Comment model
 class Comment extends Model {}
 
 Comment.init(
@@ -18,4 +20,5 @@ Comment.init(
   }
 );
 
+// Exports the Comment model for other parts of the application to use
 module.exports = Comment;

@@ -1,6 +1,8 @@
+// Dependencies
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config');
 
+// Creation of the Post model
 class Post extends Model {}
 
 Post.init(
@@ -17,4 +19,5 @@ Post.init(
   }
 );
 
+// Exports the Post model for other parts of the application to use
 module.exports = Post;
