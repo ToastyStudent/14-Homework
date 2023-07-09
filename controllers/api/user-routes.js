@@ -1,6 +1,8 @@
+// Dependencies
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// A POST route for creating a new user
 router.post('/', async (req, res) => {
   try {
     const newUser = await User.create({
@@ -20,6 +22,10 @@ router.post('/', async (req, res) => {
   }
 });
 
+// A POST route for logging in a user that fails if the correct credentials are not provided 
+// (i.e., the user does not already exist or the password is incorrect)
+// Note how each of the error messages are the same despite the different scenarios; this is to ensure bad actors 
+// cannot use the error messages to determine if a user exists in the database or not and thus attempt to guess said user's password
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({
@@ -28,15 +34,17 @@ router.post('/login', async (req, res) => {
       },
     });
 
+    // Error message if the user does not exist
     if (!user) {
-      res.status(400).json({ message: 'No user account found!' });
+      res.status(400).json({ message: 'No User Account found with these credentials!' });
       return;
     }
 
     const validPassword = user.checkPassword(req.body.password);
 
+    // Error message if the password is incorrect
     if (!validPassword) {
-      res.status(400).json({ message: 'No user account found!' });
+      res.status(400).json({ message: 'No User Account found with these credentials!' });
       return;
     }
 
@@ -45,10 +53,10 @@ router.post('/login', async (req, res) => {
       req.session.username = user.username;
       req.session.loggedIn = true;
 
-      res.json({ user, message: 'You are now logged in!' });
+      res.json({ user, message: 'You are now succesfully logged in!' });
     });
   } catch (err) {
-    res.status(400).json({ message: 'No user account found!' });
+    res.status(400).json({ message: 'No User Account found with these credentials!' });
   }
 });
 
