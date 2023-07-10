@@ -60,6 +60,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// A POST route for logging out a user that fails if the user is not logged in
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
