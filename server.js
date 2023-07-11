@@ -48,6 +48,6 @@ app.use(require('./controllers/'));
 
 // Esablish a Connection to the Database and Sequelize Server
 app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
+  console.log(`App listening at http://localhost:${PORT}`);
   sequelize.sync({ force: false });
 });
