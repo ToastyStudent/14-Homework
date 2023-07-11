@@ -101,31 +101,31 @@ input {
   display: inline;
 }
 
-.navbar {
+.navigation-bar {
   width: 100%;
   position: fixed;
   background-color: var(--dark);
 }
 
-.nav-item {
+.navigation-item {
   margin: 0 40px;
 }
 
-.nav-item a {
+.navigation-item a {
   color: var(--primary);
 }
 
-.hero {
+.blog-header {
   padding: 3% 4%;
   background-color: var(--dark);
   color: var(--primary);
 }
 
-.hero p {
+.blog-header p {
   max-width: 75%;
 }
 
-.app-title {
+.application-title {
   font-size: 3rem;
   background-color: var(--primary);
   color: var(--dark);
@@ -135,7 +135,7 @@ input {
   box-shadow: 6px 5px var(--light-dark);
 }
 
-.app-title a {
+.application-title a {
   color: var(--dark);
 }
 
