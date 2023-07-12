@@ -14,7 +14,7 @@ Said interaction/usage would involve simply creating an account via signing up a
 https://hw-14-blog-challenge-b36b5ec143c6.herokuapp.com/
 
 # Screenshot of Deployed Application
-[A screenshot of the Deployed Application]()
+[A screenshot of the Deployed Application](./14-Homework-Screenshot.png)
 
 # Credits
 This entire project was built using code provided by Northwestern University's Full-stack Development Coding Bootcamp TAs from the following repository:
